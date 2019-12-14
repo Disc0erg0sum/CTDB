@@ -62,7 +62,7 @@ Um mit [Johnny-Five](http://johnny-five.io/) einen Stepper zu betreitreiben muss
 - 330 mA
 - 4 Phasen
 - Unipolar
-- 64 steps
+- 32 steps
 - Der Motor hat ein eingebautes getribe, damit ensprichen 64 steps nicht einer vollen umdreung der Gehäuisespindel.
 
 #### Probleme
