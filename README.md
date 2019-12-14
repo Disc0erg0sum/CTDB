@@ -48,6 +48,27 @@ Gcode lässt sich aus Vertorgrafiklen erzeugen. Ein kostenloses Open Source Velk
 
 Zum Schluss muss noch der generierte Gcode zu dem Plotter Übertragen werden. Da für gibt es ein liste von Tols auf der [grbl-Wiki](https://github.com/grbl/grbl/wiki/Using-Grbl) Seite
 
+## Versuche
+
+### Stepper mit Johnny ansteuern
+
+Um zuschaune wie man einen Schritmotor ansteuern kann nehmen wir einen einfachne kleinen 28BYJ-48 und ein ULN2003 als treiber. Beide Bauteile eignen sich gut für erste versuche, da sie in vieln Arduino-Kit's enthalten, sie sind relativ Preisgünstig, beide Bautele konnen mit einter Spannung von 5V betriben werden.
+
+Um mit [Johnny-Five](http://johnny-five.io/) einen Stepper zu betreitreiben muss auf den Arduino die [AdvancedFirmata](https://github.com/soundanalogous/AdvancedFirmata) gespeilt werden.
+
+#### 28BYJ-48
+
+- 5V
+- 330 mA
+- 4 Phasen
+- Unipolar
+- 64 steps
+- Der Motor hat ein eingebautes getribe, damit ensprichen 64 steps nicht einer vollen umdreung der Gehäuisespindel.
+
+#### Probleme
+
+Die dre richtung des Steppes lässt sich nicht ändern. Mir ist bis jetzt unklar, ob es an Johnny 5, dem getriebe oder einem anderen fehler liegt.
+
 ## Author(s)
 
 **Jendrik Bradaczek**
