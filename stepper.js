@@ -19,7 +19,8 @@ const CCW = 0; // Stepper Diration
 const CW = 1; // Stepper Diration
 
 let testLed = undefined;
-let stepper = undefined;
+let stepperX = undefined;
+let stepperY = undefined;
 
 // bordkomunikation Starten
 board.on("ready", function() {
@@ -27,7 +28,7 @@ board.on("ready", function() {
   testLed.blink(200);
 
   // Stepper erzeugen
-  const stepper = new Stepper({
+  stepperX = new Stepper({
     type: Stepper.TYPE.FOUR_WIRE,
     stepsPerRev: 32,
     pins: {
@@ -38,20 +39,51 @@ board.on("ready", function() {
     }
   });
 
+  stepperY = new Stepper({
+    type: Stepper.TYPE.FOUR_WIRE,
+    stepsPerRev: 32,
+    pins: {
+      motor1: 5,
+      motor2: 6,
+      motor3: 7,
+      motor4: 8
+    }
+  });
+
   // set stepp[er to 180 rpm, CCW, with acceleration and deceleration
-  stepper
+  stepperX
+    .rpm(180)
+    .direction(CCW)
+    .accel(1600)
+    .decel(1600);
+
+  stepperY
     .rpm(180)
     .direction(CCW)
     .accel(1600)
     .decel(1600);
 
   // make 10 full revolutions
-  stepper.step(2000, () => {
+  stepperX.step(2000, () => {
     console.log("done moving CCW");
 
     // once first movement is done, make 10 revolutions clockwise at previously
     //      defined speed, accel, and decel by passing an object into stepper.step
-    stepper.step(
+    stepperX.step(
+      {
+        steps: 2000,
+        direction: CW
+      },
+      () => console.log("done moving CW")
+    );
+  });
+
+  stepperY.step(2000, () => {
+    console.log("done moving CCW");
+
+    // once first movement is done, make 10 revolutions clockwise at previously
+    //      defined speed, accel, and decel by passing an object into stepper.step
+    stepperY.step(
       {
         steps: 2000,
         direction: CW
