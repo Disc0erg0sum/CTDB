@@ -11,6 +11,9 @@ Jendrik Bradaczek
 Copyright © 2019 Jendrik Bradaczek
 Licensed under the MIT license.
 
+# Problem beschreibung
+Jeder Stepper für sich funktioniert. Beie Stepper zu sammen gehen nicht.
+
 */
 
 const { Board, Led, Stepper } = require("johnny-five"); // laden des node-Moduls
@@ -78,17 +81,19 @@ board.on("ready", function() {
     );
   });
 
-  stepperY.step(2000, () => {
-    console.log("done moving CCW");
+  // * geht es
 
-    // once first movement is done, make 10 revolutions clockwise at previously
-    //      defined speed, accel, and decel by passing an object into stepper.step
-    stepperY.step(
-      {
-        steps: 2000,
-        direction: CW
-      },
-      () => console.log("done moving CW")
-    );
-  });
+  //   stepperY.step(2000, () => {
+  //     console.log("done moving CCW");
+
+  //     // once first movement is done, make 10 revolutions clockwise at previously
+  //     //      defined speed, accel, and decel by passing an object into stepper.step
+  //     stepperY.step(
+  //       {
+  //         steps: 2000,
+  //         direction: CW
+  //       },
+  //       () => console.log("done moving CW")
+  //     );
+  //   });
 });
