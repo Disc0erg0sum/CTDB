@@ -65,8 +65,12 @@ Um mit [Johnny-Five](http://johnny-five.io/) einen Stepper zu betreiben, muss au
 
 #### Probleme
 
-1. Die Drehrichtung des Stepper lässt sich nicht ändern. _**Lösung:** Die Polung des Steppers tauschen._
-2. Ich kann nicht beide Stepper gleichzeitig ansteuern, einzeln kann ich sie ansteuern. Die Hardware ist nicht das Problem.
+**1.**
+Die Drehrichtung des Stepper lässt sich nicht ändern.
+_**Lösung:** Die Polung des Steppers tauschen._
+
+**2.**
+Ich kann nicht beide Stepper gleichzeitig ansteuern, einzeln kann ich sie ansteuern. Die Hardware ist nicht das Problem.
 
 So kann ich beide gleich zeitig bewegen.
 
@@ -83,7 +87,7 @@ So nicht.
         stepperY.cw().step(2000);
         console.log("beide gleichzeig bewegt");
 
-so auch nicht
+So auch nicht
 
         const move = () => {
           console.log("bewegen");
