@@ -65,8 +65,73 @@ Um mit [Johnny-Five](http://johnny-five.io/) einen Stepper zu betreiben, muss au
 
 #### Probleme
 
-1. Die Drehrichtung des Stepper lässt sich nicht ändern. _**Lösung:** Die Verpolung des Steppers tauschen._
-2. Ich kann nicht beide Stepper gleich zeitig ansteuern, einzeln kann ich sie ansteuern. Die Hardware ist nicht das Problem.
+1. Die Drehrichtung des Stepper lässt sich nicht ändern. _**Lösung:** Die Polung des Steppers tauschen._
+2. Ich kann nicht beide Stepper gleichzeitig ansteuern, einzeln kann ich sie ansteuern. Die Hardware ist nicht das Problem.
+
+So funktioniert es, wenn ich eine der Bewegung X oder Y ich Auskommentiere.
+
+    // make 10 full revolutions
+    stepperX.step(2000, () => {
+        console.log("done moving CCW");
+
+        // once first movement is done, make 10 revolutions clockwise at previously
+        //      defined speed, accel, and decel by passing an object into stepper.step
+        stepperX.step(
+        {
+            steps: 2000,
+            direction: CW
+        },
+        () => console.log("done moving CW")
+        );
+    });
+
+    // * So geht es
+
+    //   stepperY.step(2000, () => {
+    //     console.log("done moving CCW");
+
+    //     // once first movement is done, make 10 revolutions clockwise at previously
+    //     //      defined speed, accel, and decel by passing an object into stepper.step
+    //     stepperY.step(
+    //       {
+    //          steps: 2000,
+    //          direction: CW
+    //       },
+    //       () => console.log("done moving CW")
+    //     );
+    //   });
+
+So funktioniert keine der beiden Achsen.
+
+    // make 10 full revolutions
+    stepperX.step(2000, () => {
+        console.log("done moving CCW");
+
+        // once first movement is done, make 10 revolutions clockwise at previously
+        //      defined speed, accel, and decel by passing an object into stepper.step
+        stepperX.step(
+        {
+            steps: 2000,
+            direction: CW
+        },
+        () => console.log("done moving CW")
+        );
+    });
+
+    // * So geht es nicht
+
+    stepperY.step(2000, () => {
+        console.log("done moving CCW")
+        // once first movement is done, make 10 revolutions clockwise at previously
+        //      defined speed, accel, and decel by passing an object into stepper.step
+        stepperY.step(
+        {
+            steps: 2000,
+            direction: CW
+        },
+        () => console.log("done moving CW")
+        );
+    });
 
 ## Author(s)
 
