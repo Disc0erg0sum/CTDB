@@ -33,23 +33,23 @@ board.on("ready", function() {
   // Stepper erzeugen
   stepperX = new Stepper({
     type: Stepper.TYPE.FOUR_WIRE,
-    stepsPerRev: 32,
+    stepsPerRev: 180,
     pins: {
-      motor1: 9,
-      motor2: 10,
-      motor3: 11,
-      motor4: 12
+      motor1: 9, // IN4
+      motor2: 10, // IN2
+      motor3: 11, // IN3
+      motor4: 12 // IN1
     }
   });
 
   stepperY = new Stepper({
     type: Stepper.TYPE.FOUR_WIRE,
-    stepsPerRev: 32,
+    stepsPerRev: 200,
     pins: {
-      motor1: 5,
-      motor2: 6,
-      motor3: 7,
-      motor4: 8
+      motor1: 5, // IN4
+      motor2: 6, // IN2
+      motor3: 7, // IN3
+      motor4: 8 // IN1
     }
   });
 
@@ -81,7 +81,7 @@ board.on("ready", function() {
     );
   });
 
-  // * geht es
+  // * So geht es
 
   //   stepperY.step(2000, () => {
   //     console.log("done moving CCW");
