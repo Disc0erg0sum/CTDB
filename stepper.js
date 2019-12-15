@@ -66,34 +66,27 @@ board.on("ready", function() {
     .accel(1600)
     .decel(1600);
 
-  // make 10 full revolutions
+  // wenn so kann ich beide gleich zeitig bewegen.
   stepperX.step(2000, () => {
-    console.log("done moving CCW");
-
-    // once first movement is done, make 10 revolutions clockwise at previously
-    //      defined speed, accel, and decel by passing an object into stepper.step
-    stepperX.step(
-      {
-        steps: 2000,
-        direction: CW
-      },
-      () => console.log("done moving CW")
-    );
+    console.log("x bewegt");
+    stepperX.cw().step(2000);
+    stepperY.cw().step(2000);
+    console.log("beide gleichzeig bewegt");
   });
 
-  // * So geht es
+  //   // so get es nicht
 
-  //   stepperY.step(2000, () => {
-  //     console.log("done moving CCW");
+  //   stepperX.cw().step(2000);
+  //   stepperY.cw().step(2000);
+  //   console.log("beide gleichzeig bewegt");
 
-  //     // once first movement is done, make 10 revolutions clockwise at previously
-  //     //      defined speed, accel, and decel by passing an object into stepper.step
-  //     stepperY.step(
-  //       {
-  //         steps: 2000,
-  //         direction: CW
-  //       },
-  //       () => console.log("done moving CW")
-  //     );
-  //   });
+  //   // so auch nicht
+
+  //   const move = () => {
+  //     console.log("bewegen");
+  //     stepperX.step(2000);
+  //     stepperY.step(2000);
+  //   };
+
+  //   move();
 });
