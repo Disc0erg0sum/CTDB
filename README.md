@@ -97,6 +97,18 @@ So auch nicht
 
         move();
 
+#### Ergebnis
+
+Johnny Five ist ein Interesantes konzept aber auf grund zuwenig Code Beispielen, in der kürze der Zeit für mich nicht Praktikabel.
+Aus diesem Grund habe ich mich endschlossen in C++ mit dem Arduino Framework witer zu arbeiten. Mit der Syntaks habe ich einfach mehr erfahrung.
+
+### Eine einfache X/Y steuerung für zwei Stepper schreiben.
+
+Da mir die Arduino eigne IDE nicht gefällt habe ich mich entschlossen PlatformIO zu nutzen.
+
+[**Projekt Ordner**] (./Arduino)
+
+
 ## Author(s)
 
 **Jendrik Bradaczek**

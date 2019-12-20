@@ -44,7 +44,7 @@ board.on("ready", function() {
 
   stepperY = new Stepper({
     type: Stepper.TYPE.FOUR_WIRE,
-    stepsPerRev: 200,
+    stepsPerRev: 180,
     pins: {
       motor1: 5, // IN4
       motor2: 6, // IN2
@@ -66,11 +66,15 @@ board.on("ready", function() {
     .accel(1600)
     .decel(1600);
 
-  // wenn so kann ich beide gleich zeitig bewegen.
+  // so kann ich beide gleich zeitig bewegen.
   stepperX.step(2000, () => {
     console.log("x bewegt");
-    stepperX.cw().step(2000);
-    stepperY.cw().step(2000);
+    stepperX.cw().step(2000, () => {
+      console.log("x movred");
+    });
+    stepperY.cw().step(2000, () => {
+      console.log("y movred");
+    });
     console.log("beide gleichzeig bewegt");
   });
 
