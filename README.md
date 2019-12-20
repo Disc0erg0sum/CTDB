@@ -96,12 +96,6 @@ So auch nicht
         };
 
         move();
-        
-## Notizen
-
-https://blog.protoneer.co.nz/arduino-cnc-shield-v3-00-assembly-guide/#Jumpers
-
-https://www.instructables.com/id/How-to-Make-GRBL-CNC-V3-Shield-Based-Mini-CNC-Mach-1/
 
 #### Ergebnis
 
@@ -112,8 +106,13 @@ Aus diesem Grund habe ich mich endschlossen in C++ mit dem Arduino Framework wit
 
 Da mir die Arduino eigne IDE nicht gefällt habe ich mich entschlossen PlatformIO zu nutzen.
 
-[**Projekt Ordner**] (./Arduino)
+[**Projekt Ordner**](Arduino)
 
+## Notizen
+
+https://blog.protoneer.co.nz/arduino-cnc-shield-v3-00-assembly-guide/#Jumpers
+
+https://www.instructables.com/id/How-to-Make-GRBL-CNC-V3-Shield-Based-Mini-CNC-Mach-1/
 
 ## Author(s)
 
